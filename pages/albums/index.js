@@ -23,19 +23,19 @@ export async function getStaticProps() {
 const AlbumsPage = ({ albums }) => {
     return <Layout>
         <Container>
-        <Heading level="1"> Albums </Heading>
+        <Heading level="1">Albums</Heading>
         <Row>
         {albums.map((album, index) => {
             const { featuredImage, title, slug} = album.node;
-            const {src, alt, width, height} = featuredImage.node;
+            const {sourceUrl, altText, mediaDetails} = featuredImage.node;
             return <Col key={index} xs="6" sm="4">
                     <Image
-                        src={`/images/${src}`}
-                        alt={alt}
-                        width={width}
-                        height={height}
+                        src={sourceUrl}
+                        alt={altText}
+                        width={mediaDetails.width}
+                        height={mediaDetails.height}
                     />
-                <Heading level="3">{album.title}</Heading>
+                <Heading level="3">{title}</Heading>
                 <Paragraph>
                     <Link href={`/albums/${slug}`}>
                         <a>
