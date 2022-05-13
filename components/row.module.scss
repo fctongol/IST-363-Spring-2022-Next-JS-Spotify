@@ -5,7 +5,6 @@ $alignItemsValues: flex-start, flex-end, center, stretch, baseline;
 	//background-color: cyan;
 	display: flex;
 	flex-wrap: wrap;
-    justify-content: space-between;
 	margin-left: -1rem;
 	margin-right: -1rem;
     @each $value in $justifyContentValues {
