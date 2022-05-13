@@ -45,7 +45,8 @@ const AlbumsPage = ({ albums }) => {
                 </Paragraph>
             </Col>
         })}
-        </Row></Container>
+        </Row>
+        </Container>
     </Layout>
 }
 export default AlbumsPage; 
