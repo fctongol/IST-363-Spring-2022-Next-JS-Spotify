@@ -1,17 +1,19 @@
+@use '../sass/abstracts/vars.scss';
+
 .btn {
     background-color: limegreen;
     color: white;
     border: 0;
-    padding: .5rem 1rem;
+    padding: .75rem 1.25rem;
     font-family:Arial;
     font-weight:bold;
     text-transform:uppercase;
-    margin:0.5rem;
+    border-radius: 200px;
     a {
-        color:white;
+        color:black;
     }
     &.primary {
-        background-color: limegreen;
+        background-color: vars.$color_primary;
     }
     &.secondary {
         background-color: white;

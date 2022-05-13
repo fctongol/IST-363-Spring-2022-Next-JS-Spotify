@@ -28,7 +28,7 @@ const AlbumsPage = ({ albums }) => {
         {albums.map((album, index) => {
             const { featuredImage, title, slug} = album.node;
             const {sourceUrl, altText, mediaDetails} = featuredImage.node;
-            return <Col key={index} xs="6" sm="4">
+            return <Col key={index} xs="6" sm="4" marginBottom="2">
                     <Image
                         src={sourceUrl}
                         alt={altText}

@@ -4,8 +4,11 @@ import Heading from '../../components/Heading'
 import Layout from '../../components/Layout'
 import Link from 'next/link'
 import Row from '../../components/Row'
+import Section from '../../components/Section'
 
 import {getAllArtistSlugs, getSingleArtistData} from '../../lib/api'
+import Container from '../../components/Container'
+import Paragraph from '../../components/Paragraph'
 
 //WATERFALL
 // 1. getStaticPaths
@@ -28,19 +31,28 @@ export async function getStaticProps({ params }) {
 // 3. Use the data
 
 const SingleArtistPage = ( { artistData }) => {
-     const { title, featuredImage, artistInformation } = artistData;
+     const { title, content, featuredImage, artistInformation } = artistData;
      const { sourceUrl, altText, mediaDetails } = featuredImage.node;
      const { artistsToAlbums } = artistInformation;
     return <Layout>
-        <Image 
-            src={sourceUrl}
-            alt={altText}
-            width={mediaDetails.width}
-            height={mediaDetails.height}/>
-
-        <Heading level="1">{title}</Heading>
+        <Container>
+            <Row>
+                <Col xs="12" md="3">
+                <Image 
+                    src={sourceUrl}
+                    alt={altText}
+                    width={mediaDetails.width}
+                    height={mediaDetails.height}/>
+                </Col>
+                <Col xs="12" md="9" justifyContent="center">
+                    <Heading level="1">{title}</Heading>
+                    {/*<Paragraph intro>
+                        {content}
+                    </Paragraph>*/}
+                </Col>
+            </Row>
         { artistsToAlbums &&
-        <section>
+        <Section>
             <Heading level="2">Albums</Heading>
             <Row>
                 {artistsToAlbums.map((album, index) => {
@@ -61,8 +73,9 @@ const SingleArtistPage = ( { artistData }) => {
                     </Col>
                 })}
             </Row>
-        </section>
+        </Section>
         }
+    </Container>
     </Layout>
 }
 export default SingleArtistPage

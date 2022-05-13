@@ -50,3 +50,11 @@
 	// error warn if string does not match or it is not a length
 	
 }
+
+@mixin  marginBottom {
+	@for $i from 1 through 12 {
+		&.margin-bottom-#{$i} {
+			margin-bottom: $i + rem;
+		}
+	}
+}
